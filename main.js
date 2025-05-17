@@ -826,3 +826,126 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Custom cursor
+const cursor = document.querySelector('.cursor');
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorOutline = document.querySelector('.cursor-outline');
+
+document.addEventListener('mousemove', (e) => {
+    const posX = e.clientX;
+    const posY = e.clientY;
+
+    cursorDot.style.left = `${posX}px`;
+    cursorDot.style.top = `${posY}px`;
+
+    cursorOutline.animate({
+        left: `${posX}px`,
+        top: `${posY}px`
+    }, {
+        duration: 500,
+        fill: "forwards"
+    });
+});
+
+// Scroll progress indicator
+const scrollProgress = document.querySelector('.scroll-progress');
+
+window.addEventListener('scroll', () => {
+    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (window.scrollY / windowHeight) * 100;
+    scrollProgress.style.transform = `scaleX(${scrolled / 100})`;
+});
+
+// Scroll to top button
+const scrollTopBtn = document.querySelector('.scroll-top-btn');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('visible');
+    } else {
+        scrollTopBtn.classList.remove('visible');
+    }
+});
+
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Text reveal animation
+const revealTexts = document.querySelectorAll('.reveal-text');
+
+const revealText = (entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+        }
+    });
+};
+
+const textObserver = new IntersectionObserver(revealText, {
+    threshold: 0.1
+});
+
+revealTexts.forEach(text => {
+    textObserver.observe(text);
+});
+
+// Magnetic button effect
+const magneticButtons = document.querySelectorAll('.magnetic-button');
+
+magneticButtons.forEach(button => {
+    button.addEventListener('mousemove', (e) => {
+        const rect = button.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        button.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+
+    button.addEventListener('mouseleave', () => {
+        button.style.transform = 'translate(0px, 0px)';
+    });
+});
+
+// Mobile menu
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+});
+
+// Smooth scroll for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Add hover effect to cards
+const cards = document.querySelectorAll('.feature-card, .workflow-card');
+
+cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.classList.add('hover');
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.classList.remove('hover');
+    });
+});
+
+// Initialize animations when page loads
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+});
