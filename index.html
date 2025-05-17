@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+    
+    <!-- Load GSAP first -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Then load other scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <script src="https://unpkg.com/sheryjs/dist/shery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h2>NoteDev.</h2>
+            <div class="links">
+                <a href="index.html" class="magnetic-hover">Home</a>
+                <a href="Features.html" class="magnetic-hover">Features</a>
+                <a href="How It Works.html" class="magnetic-hover">How It Works</a>
+            </div>
+            <a class="button" href="/home.html" id="nav-button">Get Started</a>
+        </nav>
+    </header>
+    <div id="page1">
+        <div class="hero">
+            <div data-us-project="gR6IIvO4QRhWyqBeVK85" style="width:1920px; height: 1080px"></div>
+            <script defer type="text/javascript">
+                !function () {
+                    if (!window.UnicornStudio) {
+                        window.UnicornStudio = { isInitialized: !1 };
+                        var i = document.createElement("script");
+                        i.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.20/dist/unicornStudio.umd.js",
+                            i.onload = function () {
+                                window.UnicornStudio.isInitialized || (UnicornStudio.init(), window.UnicornStudio.isInitialized = !0)
+                            },
+                            (document.head || document.body).appendChild(i)
+                    }
+                }();
+            </script>
+        </div>
+        <div class="logo-hider"></div>
+        <div class="hero-subtitle">
+            <h4>A lightweight, powerful tool to quickly jot, drag, and organize your thoughts</h4>
+            <a href="/home.html" class="magnetic-button" onmousemove="handleMagneticMove(event, this)" onmouseleave="handleMagneticLeave(this)">Start Creating <i class="ri-arrow-right-up-line"></i></a>
+        </div>
+        <div class="hero-subtitle-2">
+            <h1>NoteMe</h1>
+            <p>Made for developers, designers, and creators who need a quick and intuitive way to manage thoughts,
+                todos, and ideas without distractions.</p>
+        </div>
+    </div>
+
+    <div id="page2">
+    </div>
+
+    <script src="animation.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Sticky Notes</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.96/build/spline-viewer.js"></script>
+</head>
+
+<body class="light-theme">
+    <spline-viewer class="spline-bg" url="https://prod.spline.design/gvaYMv1O6NdCjwyu/scene.splinecode"></spline-viewer>
+    <main>
+        <div class="controls-bar">
+            <div class="tabs" id="filter-tabs">
+                <button class="tab active" data-filter="all">Show All</button>
+                <button class="tab" data-filter="pinned">Only Pinned</button>
+                <button class="tab" data-filter="personal">Personal Stuff</button>
+                <button class="tab" data-filter="work">Work</button>
+                <button class="tab" data-filter="ideas">Brainstorm</button>
+            </div>
+
+            <div class="header-controls">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Find a note...">
+                </div>
+
+                <button id="add-note-btn" class="btn btn-primary">
+                    <i class="fas fa-plus"></i>
+                    <span>New Note</span>
+                </button>
+
+                <button id="auto-arrange-btn" class="btn btn-outline" style="margin-left: 0.5rem;">
+                    <i class="ri-layout-grid-line"></i>
+                    <span>Auto Arrange</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="notes-container grid-view" id="notes-container">
+
+        </div>
+
+        <div class="empty-state" id="empty-state">
+
+            <h1 class="center-title">CREATE YOUR NOTES</h1>
+
+        </div>
+    </main>
+
+
+    <div class="modal" id="add-note-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create a Note</h3>
+                <button class="close-btn" id="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="add-note-form">
+                    <div class="form-group">
+                        <label for="note-title">Title (optional)</label>
+                        <input type="text" id="note-title" placeholder="Give it a title">
+                    </div>
+
+                    <div class="tabs-container">
+                        <div class="tabs" id="note-form-tabs">
+                            <button type="button" class="tab active" data-tab="content">Write It</button>
+                            <button type="button" class="tab" data-tab="attachments">Add Image</button>
+                            <button type="button" class="tab" data-tab="settings">More Options</button>
+                        </div>
+
+                        <div class="tab-content active" id="content-tab">
+                            <div class="form-group">
+                                <label for="note-content">Your Note</label>
+                                <textarea id="note-content" placeholder="Type your note here!" required></textarea>
+                            </div>
+                            <div class="emoji-picker">
+                                <div class="emoji-list">
+                                    <button type="button" class="emoji-btn">😀</button>
+                                    <button type="button" class="emoji-btn">👍</button>
+                                    <button type="button" class="emoji-btn">🎉</button>
+                                    <button type="button" class="emoji-btn">❤️</button>
+                                    <button type="button" class="emoji-btn">🔥</button>
+                                    <button type="button" class="emoji-btn">✅</button>
+                                    <button type="button" class="emoji-btn">⭐</button>
+                                    <button type="button" class="emoji-btn">🚀</button>
+                                </div>
+                                <button type="button" class="btn-icon">
+                                    <i class="fas fa-smile"></i>
+                                </button>
+                                <button type="button" class="btn-icon">
+                                    <i class="fas fa-calendar"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="attachments-tab">
+                            <div class="form-group">
+                                <label>Picture Time!</label>
+                                <div class="file-input-container">
+                                    <button type="button" id="choose-image-btn" class="btn btn-outline">
+                                        <i class="fas fa-image"></i>
+                                        <span>Pick Image</span>
+                                    </button>
+                                    <input type="file" id="image-input" accept="image/*" hidden>
+                                    <span class="file-info">Max size: 5MB</span>
+                                </div>
+                                <div class="image-preview" id="image-preview"></div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="settings-tab">
+                            <div class="form-group">
+                                <label>Category</label>
+                                <div class="radio-group">
+                                    <label class="radio-item">
+                                        <input type="radio" name="category" value="personal" checked>
+                                        <span>Personal Stuff</span>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="category" value="work">
+                                        <span>Work</span>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="category" value="ideas">
+                                        <span>Brainstorm</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Priority</label>
+                                <div class="button-group">
+                                    <button type="button" class="btn btn-outline priority-btn"
+                                        data-priority="low">Low</button>
+                                    <button type="button" class="btn btn-outline priority-btn"
+                                        data-priority="medium">Medium</button>
+                                    <button type="button" class="btn btn-outline priority-btn"
+                                        data-priority="high">High</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Note Background Color</label>
+                                <input type="color" id="note-bg-color" value="#f8faff"
+                                    style="width: 48px; height: 32px; border: none; background: none; cursor: pointer;">
+                            </div>
+                            <div class="form-group">
+                                <label>Note Text Color</label>
+                                <input type="color" id="note-text-color" value="#222222"
+                                    style="width: 48px; height: 32px; border: none; background: none; cursor: pointer;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">Create!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <template id="note-template">
+        <div class="note-card" draggable="true">
+            <div class="note-header">
+                <div class="note-title-container">
+                    <i class="ri-sticky-note-line"></i>
+                    <h3 class="note-title">New Note</h3>
+                </div>
+                <div class="note-actions">
+                    <button class="action-btn pin-btn" title="Pin">
+                        <i class="ri-pushpin-line"></i>
+                    </button>
+                    <button class="action-btn duplicate-btn" title="Duplicate">
+                        <i class="ri-file-copy-line"></i>
+                    </button>
+                    <button class="action-btn delete-btn" title="Delete">
+                        <i class="ri-delete-bin-line"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="note-content">
+                <div class="note-text"></div>
+                <div class="note-image-container">
+                    <img class="note-image" src="/placeholder.svg" alt="">
+                </div>
+            </div>
+            <div class="note-footer">
+                <div class="note-info">
+                    <span class="file-size">9mb</span>
+                    <span class="note-date"></span>
+                </div>
+                <button class="close-btn">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

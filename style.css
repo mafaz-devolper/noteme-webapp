@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=Bebas+Neue&family=Boldonse&family=Caveat:wght@400..700&family=Cinzel:wght@400..900&family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Luckiest+Guy&family=Luxurious+Script&family=Onest:wght@100..900&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Outfit:wght@100..900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Russo+One&family=Teko:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    position: relative;
+    /* padding: 30px 0; */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    /* flex-direction: column; */
+}
+
+nav {
+    width: 95%;
+    height: 80px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    border: 2px solid #444;
+    border-radius: 12px;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 2px 2px 6px #0000007c;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, rgb(0, 0, 0), #222);
+}
+
+nav h2 {
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    font-family: "Tektur", sans-serif;
+}
+
+nav .links {
+    display: flex;
+    gap: 4vw;
+}
+
+nav .links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 22px;
+    font-family: 'Caveat', sans-serif;
+    font-weight: 500;
+    position: relative;
+}
+
+nav .button {
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 80px;
+    background-color: #ffffff;
+    color: #000000;
+    filter: drop-shadow(0 0 5px #ffffff6e);
+    transition: all 0.3s ease-in-out;
+}
+
+nav .button:hover {
+    background-color: #d6d6d6;
+    color: #3d3d3d;
+    filter: drop-shadow(0 0 10px #fff);
+}
+
+.magnetic-hover {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(0);
+    z-index: -1;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    scale: 0.9;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-hider {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 140px;
+    background-color: #ffffff;
+    z-index: -1;
+}
+
+#page1 {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+#page2 {
+    height: 100vh;
+    width: 100%;
+    background-color: blue;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-subtitle {
+    position: absolute;
+    bottom: 10px;
+    left: 2%;
+    max-width: 600px;
+    text-align: left;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.hero-subtitle h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-subtitle a {
+    color: #000000;
+    border: none;
+    border: 2px solid #000000;
+    padding: 10px 10px;
+    padding-left: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.hero-subtitle a i {
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 50px;
+    padding: 5px;
+    border: 2px solid #000000;
+    transition: all 0.3s ease-in-out;
+}
+
+.hero-subtitle a:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .hero-subtitle {
+        bottom: 140px;
+        left: 5%;
+        max-width: 90%;
+    }
+
+    .hero-subtitle h4 {
+        font-size: 1.4rem;
+    }
+}
+
+.hero-subtitle-2 {
+    position: absolute;
+    bottom: 10px;
+    right: 2%;
+    max-width: 600px;
+    text-align: left;
+    z-index: 2;
+    padding: 20px;
+}
+
+.hero-subtitle-2 h1 {
+    font-size: 4.5rem;
+    font-weight: 600;
+    font-family: 'Dancing Script', 'Luxurious Script';
+    font-style: italic;
+    text-transform: capitalize;
+    text-align: end;
+    border-bottom: 2px solid #000000;
+}
+
+.hero-subtitle-2 p {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+    text-align: end;
+}
