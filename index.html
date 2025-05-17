@@ -4,70 +4,622 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
-    
-    <!-- Load GSAP first -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <!-- Then load other scripts -->
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-    <script src="https://unpkg.com/sheryjs/dist/shery.min.js"></script>
+    <title>NoteMe - Digital Sticky Notes</title>
+    <meta name="description"
+        content="A lightweight, powerful tool to quickly jot, drag, and organize your thoughts. Made for developers, designers, and creators.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Luxurious+Script&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body>
-    <header>
-        <nav>
-            <h2>NoteDev.</h2>
-            <div class="links">
-                <a href="index.html" class="magnetic-hover">Home</a>
-                <a href="Features.html" class="magnetic-hover">Features</a>
-                <a href="How It Works.html" class="magnetic-hover">How It Works</a>
-            </div>
-            <a class="button" href="/home.html" id="nav-button">Get Started</a>
-        </nav>
+    <!-- Mouse Follower -->
+    <div class="cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="logo-container" data-cursor-hover>
+                <div class="logo"></div>
+                <span class="logo-text">NoteMe</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <a href="#features" class="nav-link" data-cursor-hover>Features</a>
+                <a href="#how-it-works" class="nav-link" data-cursor-hover>How It Works</a>
+                <a href="#dashboard" class="nav-link" data-cursor-hover>Dashboard</a>
+                <a href="#pricing" class="nav-link" data-cursor-hover>Pricing</a>
+                <a href="#testimonials" class="nav-link" data-cursor-hover>Testimonials</a>
+                <button class="get-started-btn magnetic-button" data-cursor-hover>Get Started</button>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" data-cursor-hover>
+                <i class="ri-menu-line"></i>
+            </button>
+        </div>
     </header>
-    <div id="page1">
-        <div class="hero">
-            <div data-us-project="gR6IIvO4QRhWyqBeVK85" style="width:1920px; height: 1080px"></div>
-            <script defer type="text/javascript">
-                !function () {
-                    if (!window.UnicornStudio) {
-                        window.UnicornStudio = { isInitialized: !1 };
-                        var i = document.createElement("script");
-                        i.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.20/dist/unicornStudio.umd.js",
-                            i.onload = function () {
-                                window.UnicornStudio.isInitialized || (UnicornStudio.init(), window.UnicornStudio.isInitialized = !0)
-                            },
-                            (document.head || document.body).appendChild(i)
-                    }
-                }();
-            </script>
-        </div>
-        <div class="logo-hider"></div>
-        <div class="hero-subtitle">
-            <h4>A lightweight, powerful tool to quickly jot, drag, and organize your thoughts</h4>
-            <a href="/home.html" class="magnetic-button" onmousemove="handleMagneticMove(event, this)" onmouseleave="handleMagneticLeave(this)">Start Creating <i class="ri-arrow-right-up-line"></i></a>
-        </div>
-        <div class="hero-subtitle-2">
-            <h1>NoteMe</h1>
-            <p>Made for developers, designers, and creators who need a quick and intuitive way to manage thoughts,
-                todos, and ideas without distractions.</p>
-        </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <nav class="mobile-nav">
+            <a href="#features" class="mobile-nav-link" data-cursor-hover>Features</a>
+            <a href="#how-it-works" class="mobile-nav-link" data-cursor-hover>How It Works</a>
+            <a href="#dashboard" class="mobile-nav-link" data-cursor-hover>Dashboard</a>
+            <a href="#pricing" class="mobile-nav-link" data-cursor-hover>Pricing</a>
+            <a href="#testimonials" class="mobile-nav-link" data-cursor-hover>Testimonials</a>
+            <button class="mobile-get-started-btn" data-cursor-hover>Get Started</button>
+        </nav>
     </div>
 
-    <div id="page2">
-    </div>
+    <main>
+        <!-- Hero Section -->
+        <section id="page1">
+            <div class="hero">
+                <div data-us-project="gR6IIvO4QRhWyqBeVK85" style="width:1920px; height: 1080px"></div>
+            </div>
+            <div class="logo-hider"></div>
+            <div class="hero-subtitle">
+                <h4>A lightweight, powerful tool to quickly jot, drag, and organize your thoughts</h4>
+                <a href="#features" class="magnetic-button" data-cursor-hover>
+                    Start Creating
+                    <span class="arrow-icon"><i class="ri-arrow-right-up-line"></i></span>
+                </a>
+            </div>
+            <div class="hero-subtitle-2">
+                <h1>NoteMe</h1>
+                <p>Made for developers, designers, and creators who need a quick and intuitive way to manage thoughts,
+                    todos, and ideas without distractions.</p>
+            </div>
+        </section>
 
-    <script src="animation.js"></script>
-    <script src="main.js"></script>
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="reveal-text">Packed with Powerful Features</h2>
+                    <p class="reveal-text">Everything you need to capture, organize, and remember your ideas</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card" data-cursor-hover>
+                        <div class="feature-icon">
+                            <i class="ri-sticky-note-line"></i>
+                        </div>
+                        <h3>Unlimited Notes</h3>
+                        <p>Create as many sticky notes as you need to organize your thoughts and tasks.</p>
+                    </div>
+                    <div class="feature-card" data-cursor-hover>
+                        <div class="feature-icon">
+                            <i class="ri-palette-line"></i>
+                        </div>
+                        <h3>Customizable Colors</h3>
+                        <p>Choose from a variety of colors to categorize and personalize your notes.</p>
+                    </div>
+                    <div class="feature-card" data-cursor-hover>
+                        <div class="feature-icon">
+                            <i class="ri-share-line"></i>
+                        </div>
+                        <h3>Easy Sharing</h3>
+                        <p>Share your notes with teammates or friends with just a few clicks.</p>
+                    </div>
+                    <div class="feature-card" data-cursor-hover>
+                        <div class="feature-icon">
+                            <i class="ri-cloud-line"></i>
+                        </div>
+                        <h3>Cloud Sync</h3>
+                        <p>Access your notes from any device with automatic cloud synchronization.</p>
+                    </div>
+                    <div class="feature-card" data-cursor-hover>
+                        <div class="feature-icon">
+                            <i class="ri-notification-line"></i>
+                        </div>
+                        <h3>Reminders</h3>
+                        <p>Set reminders for important notes so you never miss a deadline.</p>
+                    </div>
+                    <div class="feature-card" data-cursor-hover>
+                        <div class="feature-icon">
+                            <i class="ri-lock-line"></i>
+                        </div>
+                        <h3>Private Notes</h3>
+                        <p>Keep sensitive information secure with password-protected notes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section (New) -->
+        <section id="dashboard" class="dashboard-section">
+            <div class="dashboard-dots"></div>
+            <div class="dashboard-spheres">
+                <div class="sphere sphere-1"></div>
+                <div class="sphere sphere-2"></div>
+            </div>
+
+            <div class="section-container">
+                <div class="dashboard-header">
+                    <div class="dashboard-labels">
+                        <span class="dashboard-label">AI-POWERED</span>
+                        <span class="dashboard-label">ALL-IN-ONE TOOL</span>
+                        <span class="dashboard-label">AUTOMATICALLY</span>
+                        <span class="dashboard-label">ORGANIZES ITSELF</span>
+                    </div>
+                    <h2 class="reveal-text">NoteMe</h2>
+                    <p class="reveal-text">Home •page• where• you• can• see• all• your• notes</p>
+                </div>
+
+                <div class="dashboard-preview">
+                    <img src="/imgs/Screenshot 2025-05-18 010012.png" alt="NoteMe Dashboard" class="dashboard-image"
+                        data-cursor-hover>
+                    <div class="dashboard-features">
+                        <div class="dashboard-feature" data-cursor-hover>
+                            <i class="ri-home-line"></i>
+                            <span>Home</span>
+                        </div>
+                        <div class="dashboard-feature" data-cursor-hover>
+                            <i class="ri-message-2-line"></i>
+                            <span>Messages</span>
+                        </div>
+                        <div class="dashboard-feature" data-cursor-hover>
+                            <i class="ri-customer-service-2-line"></i>
+                            <span>CRM</span>
+                        </div>
+                        <div class="dashboard-feature" data-cursor-hover>
+                            <i class="ri-projector-line"></i>
+                            <span>Projects</span>
+                        </div>
+                        <div class="dashboard-feature" data-cursor-hover>
+                            <i class="ri-robot-line"></i>
+                            <span>Micro AI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflow Section (New) -->
+        <section id="workflow" class="workflow-section">
+            <div class="workflow-dots"></div>
+            <div class="workflow-spheres">
+                <div class="sphere sphere-gold"></div>
+            </div>
+
+            <div class="section-container">
+                <div class="workflow-content">
+                    <div class="workflow-header">
+                        <h2 class="reveal-text">Micro works the way</h2>
+                        <h2 class="reveal-text">you want to work</h2>
+                    </div>
+
+                    <div class="workflow-grid">
+                        <div class="workflow-card" data-cursor-hover>
+                            <div class="workflow-card-content">
+                                <h3>Organize</h3>
+                                <p>Automatically categorizes your notes based on content</p>
+                            </div>
+                        </div>
+                        <div class="workflow-card" data-cursor-hover>
+                            <div class="workflow-card-content">
+                                <h3>Connect</h3>
+                                <p>Link related notes together to build knowledge networks</p>
+                            </div>
+                        </div>
+                        <div class="workflow-card" data-cursor-hover>
+                            <div class="workflow-card-content">
+                                <h3>Discover</h3>
+                                <p>Find patterns and insights across your notes</p>
+                            </div>
+                        </div>
+                        <div class="workflow-card" data-cursor-hover>
+                            <div class="workflow-card-content">
+                                <h3>Focus</h3>
+                                <p>Distraction-free writing environment when you need it</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workflow-image-container">
+                    <img src="/imgs/image.png" alt="NoteMe Workflow" class="workflow-image" data-cursor-hover>
+                </div>
+            </div>
+        </section>
+
+        <!-- Horizontal Scroll Section -->
+        <section id="horizontal-scroll" class="horizontal-scroll-section">
+            <div class="horizontal-scroll-container">
+                <div class="horizontal-scroll-header">
+                    <h2 class="reveal-text">Organize Your Thoughts</h2>
+                    <p class="reveal-text">Scroll to explore how NoteMe helps you capture and organize ideas</p>
+                </div>
+                <div class="notes-container">
+                    <div class="scroll-card yellow-bg" data-cursor-hover>
+                        <div>
+                            <h3>Project Kickoff</h3>
+                            <p>Discuss project goals, timeline, and team responsibilities.</p>
+                        </div>
+                        <div class="note-footer">
+                            <span>Today, 2:30 PM</span>
+                            <div class="note-dot"></div>
+                        </div>
+                    </div>
+                    <div class="scroll-card white-bg" data-cursor-hover>
+                        <div>
+                            <h3>Design Review</h3>
+                            <p>Review mockups and provide feedback on the new dashboard layout.</p>
+                        </div>
+                        <div class="note-footer">
+                            <span>Today, 2:30 PM</span>
+                            <div class="note-dot"></div>
+                        </div>
+                    </div>
+                    <div class="scroll-card light-yellow-bg" data-cursor-hover>
+                        <div>
+                            <h3>Weekly Standup</h3>
+                            <p>Share progress updates and discuss any blockers.</p>
+                        </div>
+                        <div class="note-footer">
+                            <span>Today, 2:30 PM</span>
+                            <div class="note-dot"></div>
+                        </div>
+                    </div>
+                    <div class="scroll-card white-bg" data-cursor-hover>
+                        <div>
+                            <h3>Client Meeting</h3>
+                            <p>Present the latest features and gather feedback for the next sprint.</p>
+                        </div>
+                        <div class="note-footer">
+                            <span>Today, 2:30 PM</span>
+                            <div class="note-dot"></div>
+                        </div>
+                    </div>
+                    <div class="scroll-card yellow-bg" data-cursor-hover>
+                        <div>
+                            <h3>Bug Fixes</h3>
+                            <p>Address critical issues reported by QA team before release.</p>
+                        </div>
+                        <div class="note-footer">
+                            <span>Today, 2:30 PM</span>
+                            <div class="note-dot"></div>
+                        </div>
+                    </div>
+                    <div class="scroll-card white-bg" data-cursor-hover>
+                        <div>
+                            <h3>Feature Planning</h3>
+                            <p>Brainstorm new features for the Q3 roadmap.</p>
+                        </div>
+                        <div class="note-footer">
+                            <span>Today, 2:30 PM</span>
+                            <div class="note-dot"></div>
+                        </div>
+                    </div>
+                    <div class="scroll-card light-yellow-bg" data-cursor-hover>
+                        <div>
+                            <h3>Team Lunch</h3>
+                            <p>Don't forget to order food for the team lunch on Friday!</p>
+                        </div>
+                        <div class="note-footer">
+                            <span>Today, 2:30 PM</span>
+                            <div class="note-dot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section id="how-it-works" class="video-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="reveal-text">See How It Works</h2>
+                    <p class="reveal-text">Watch our quick demo to see how NoteMe can transform your workflow</p>
+                </div>
+
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <video src="/imgs/Recording 2025-05-18 005454.mp4" autoplay muted loop
+                            class="video-placeholder-video"></video>
+                        <div class="play-button" data-cursor-hover>
+                            <div class="play-icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="decorative-blob blob-1"></div>
+            <div class="decorative-blob blob-2"></div>
+        </section>
+
+        <!-- Flagship Section (New) -->
+        <section id="flagship" class="flagship-section">
+            <div class="flagship-image-container">
+                <img src="/imgs/7c514036dbc5f27ba617f17a51a49c39.jpg" alt="NoteMe Flagship" class="flagship-image"
+                    data-cursor-hover>
+                <div class="flagship-overlay">
+                    <h2 class="reveal-text">THE FLAGSHIP</h2>
+                    <h2 class="reveal-text">SAN DIEGO</h2>
+                    <a href="#contact" class="flagship-btn" data-cursor-hover>Start Using</a>
+                </div>
+            </div>
+
+            <div class="flagship-info">
+                <div class="flagship-location">
+                    <h3>Location</h3>
+                    <address>
+                        Gadag town remote,<br>
+                        Gadag,<br>
+                        India
+                    </address>
+                </div>
+
+                <div class="flagship-links">
+                    <a href="#" class="flagship-link" data-cursor-hover>EXPLORE MORE</a>
+                    <a href="#" class="flagship-link" data-cursor-hover>DIRECTIONS</a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="reveal-text">Loved by Thousands</h2>
+                    <p class="reveal-text">See what our users have to say about NoteMe</p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card" data-cursor-hover>
+                        <div class="stars">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p class="testimonial-content">NoteMe has completely transformed how our team brainstorms and
+                            organizes ideas. The interface is intuitive and the animations make it fun to use!</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">A</div>
+                            <div class="author-info">
+                                <p class="author-name">Alex Johnson</p>
+                                <p class="author-role">Product Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" data-cursor-hover>
+                        <div class="stars">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p class="testimonial-content">As a designer, I love how customizable the notes are. The color
+                            options and organization features help me keep my design ideas structured and accessible.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">S</div>
+                            <div class="author-info">
+                                <p class="author-name">Sarah Chen</p>
+                                <p class="author-role">UX Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" data-cursor-hover>
+                        <div class="stars">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <p class="testimonial-content">I use NoteMe to track bugs and feature ideas. The cloud sync is
+                            seamless, and I can access my notes from anywhere. Highly recommend!</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">M</div>
+                            <div class="author-info">
+                                <p class="author-name">Michael Rodriguez</p>
+                                <p class="author-role">Software Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" data-cursor-hover>
+                        <div class="stars">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p class="testimonial-content">This app has been a game-changer for organizing my content
+                            calendar. The reminders feature ensures I never miss a deadline!</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">E</div>
+                            <div class="author-info">
+                                <p class="author-name">Emily Taylor</p>
+                                <p class="author-role">Content Creator</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="reveal-text">Simple, Transparent Pricing</h2>
+                    <p class="reveal-text">Choose the plan that works best for you</p>
+                </div>
+
+                <div class="pricing-grid">
+                    <div class="pricing-card" data-cursor-hover>
+                        <div class="pricing-header">
+                            <h3>Free</h3>
+                            <div class="price">
+                                <span class="amount">$0</span>
+                            </div>
+                            <p class="description">Perfect for getting started</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="ri-check-line"></i> <span>Up to 50 sticky notes</span></li>
+                                <li><i class="ri-check-line"></i> <span>3 color options</span></li>
+                                <li><i class="ri-check-line"></i> <span>Basic organization</span></li>
+                                <li><i class="ri-check-line"></i> <span>Mobile access</span></li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <button class="pricing-btn outline" data-cursor-hover>Get Started</button>
+                        </div>
+                    </div>
+                    <div class="pricing-card popular" data-cursor-hover>
+                        <div class="popular-tag">Most Popular</div>
+                        <div class="pricing-header">
+                            <h3>Pro</h3>
+                            <div class="price">
+                                <span class="amount">$4.99</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <p class="description">For power users and small teams</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="ri-check-line"></i> <span>Unlimited sticky notes</span></li>
+                                <li><i class="ri-check-line"></i> <span>All color options</span></li>
+                                <li><i class="ri-check-line"></i> <span>Advanced organization</span></li>
+                                <li><i class="ri-check-line"></i> <span>Cloud sync across devices</span></li>
+                                <li><i class="ri-check-line"></i> <span>Reminders and notifications</span></li>
+                                <li><i class="ri-check-line"></i> <span>Collaboration with up to 3 users</span></li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <button class="pricing-btn primary" data-cursor-hover>Start Free Trial</button>
+                        </div>
+                    </div>
+                    <div class="pricing-card" data-cursor-hover>
+                        <div class="pricing-header">
+                            <h3>Team</h3>
+                            <div class="price">
+                                <span class="amount">$9.99</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <p class="description">For teams and organizations</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="ri-check-line"></i> <span>Everything in Pro</span></li>
+                                <li><i class="ri-check-line"></i> <span>Unlimited collaborators</span></li>
+                                <li><i class="ri-check-line"></i> <span>Team workspaces</span></li>
+                                <li><i class="ri-check-line"></i> <span>Admin controls</span></li>
+                                <li><i class="ri-check-line"></i> <span>Priority support</span></li>
+                                <li><i class="ri-check-line"></i> <span>Advanced security</span></li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <button class="pricing-btn outline" data-cursor-hover>Contact Sales</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <div class="footer-logo">
+                            <div class="logo"></div>
+                            <span>NoteMe</span>
+                        </div>
+                        <p>Capture, organize, and remember your ideas with our intuitive sticky notes app.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" data-cursor-hover><i class="ri-facebook-fill"></i></a>
+                            <a href="#" class="social-link" data-cursor-hover><i class="ri-twitter-fill"></i></a>
+                            <a href="#" class="social-link" data-cursor-hover><i class="ri-instagram-fill"></i></a>
+                            <a href="#" class="social-link" data-cursor-hover><i class="ri-github-fill"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Product</h3>
+                        <ul>
+                            <li><a href="#" data-cursor-hover>Features</a></li>
+                            <li><a href="#" data-cursor-hover>Pricing</a></li>
+                            <li><a href="#" data-cursor-hover>Testimonials</a></li>
+                            <li><a href="#" data-cursor-hover>FAQ</a></li>
+                            <li><a href="#" data-cursor-hover>Roadmap</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="#" data-cursor-hover>About Us</a></li>
+                            <li><a href="#" data-cursor-hover>Careers</a></li>
+                            <li><a href="#" data-cursor-hover>Blog</a></li>
+                            <li><a href="#" data-cursor-hover>Press</a></li>
+                            <li><a href="#" data-cursor-hover>Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Subscribe</h3>
+                        <p>Get the latest updates and offers.</p>
+                        <div class="subscribe-form">
+                            <input type="email" placeholder="Your email" data-cursor-hover>
+                            <button data-cursor-hover><i class="ri-arrow-right-line"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© <span id="current-year"></span> NoteMe. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#" data-cursor-hover>Privacy Policy</a>
+                        <a href="#" data-cursor-hover>Terms of Service</a>
+                        <a href="#" data-cursor-hover>Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scroll to top button -->
+        <button id="scroll-top-btn" class="scroll-top-btn" data-cursor-hover>
+            <i class="ri-arrow-up-line"></i>
+        </button>
+
+        <!-- Scroll progress indicator -->
+        <div class="scroll-progress"></div>
+    </main>
+
+    <!-- UnicornStudio Script -->
+    <script>
+        !function () {
+            if (!window.UnicornStudio) {
+                window.UnicornStudio = { isInitialized: !1 };
+                var i = document.createElement("script");
+                i.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.20/dist/unicornStudio.umd.js",
+                    i.onload = function () {
+                        window.UnicornStudio.isInitialized || (UnicornStudio.init(), window.UnicornStudio.isInitialized = !0)
+                    },
+                    (document.head || document.body).appendChild(i)
+            }
+        }();
+    </script>
+
+    <!-- Lenis Smooth Scrolling -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="/animation.js"></script>
 </body>
 
 </html>
