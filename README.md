@@ -2,7 +2,7 @@
 
 A minimal, elegant web app for developers, designers, and thinkers to quickly jot, organize, and manage ideas — distraction-free.
 
-![NoteMe Preview](./preview.png)
+![NoteMe Preview](/imgs/image.png)
 
 ---
 
