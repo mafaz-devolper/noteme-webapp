@@ -1,27 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize Lenis for smooth scrolling
-    const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
-        smooth: true,
-        mouseMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 2,
-        infinite: false,
-    });
-
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    // Initialize GSAP and ScrollTrigger
-    gsap.registerPlugin(ScrollTrigger);
-
     // Set current year in footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
@@ -146,7 +123,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Scroll to top button
     scrollTopBtn.addEventListener('click', function () {
-        lenis.scrollTo('top', { duration: 1.5 });
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 
     // Magnetic button effect
@@ -395,11 +375,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
 
-            lenis.scrollTo(document.querySelector(targetId), {
-                offset: -100,
-                duration: 1.5,
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-            });
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         });
     });
 });
